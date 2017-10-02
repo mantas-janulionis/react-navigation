@@ -1,8 +1,8 @@
 /* @flow */
 
 import React, { PureComponent } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { TabViewAnimated, TabViewPagerPan } from 'react-native-tab-view';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import { TabViewAnimated, TabViewPagerPan, Dimensions } from 'react-native-tab-view';
 import SceneView from '../SceneView';
 import withCachedChildNavigation from '../../withCachedChildNavigation';
 
@@ -178,6 +178,11 @@ class TabView extends PureComponent<void, Props, void> {
       renderPager = this._renderPager;
     }
 
+    const initialLayout = this.props.initialLayout || {
+      height: 0,
+      width: Dimensions.get('window').width,
+    };
+
     const props = {
       lazy,
       animationEnabled,
@@ -185,6 +190,7 @@ class TabView extends PureComponent<void, Props, void> {
       renderPager,
       renderHeader,
       renderFooter,
+      initialLayout,
       renderScene: this._renderScene,
       onIndexChange: this._handlePageChanged,
       navigationState: this.props.navigation.state,
