@@ -2,7 +2,7 @@
 
 import React, { PureComponent } from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
-import { TabViewAnimated, TabViewPagerPan, Dimensions } from 'react-native-tab-view';
+import { TabViewAnimated, TabViewPagerPan } from 'react-native-tab-view';
 import SceneView from '../SceneView';
 import withCachedChildNavigation from '../../withCachedChildNavigation';
 
